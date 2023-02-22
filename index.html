@@ -9,59 +9,33 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="card-text font-weight-bold">Time Remaining: <br> (00: <span id= "time">00</span>) </h3>
+        <h2> Time Remaining:<br> (00:<span id="time">00</span>) </h2>
     </div>
-
-    <div class="row d-flex justifyCenter"> 
-        <div class="col-md-8 border p-4">
-            <div class="card-body">
-                <h3 class="card-text font-weight-bold float-right"> Coding Quiz</h3>
-                
-
-            </div>
-            <hr>
-            <!-- Start the Game -->
-            <div class="start_page">
-                <h3 class="text-center mb-5">Coding Basics Questions</h3>
-                <p>You will answer each question as quick as possible and try to aim for the highscore!</p>
-                <button class="btn btn-success d-flex mx-auto mt-4" id="btn"><h4>Start Quiz</h4></button>
-                
-            </div>
-            <!-- Quiz -->
-            <div id="main">
-                <div class="card-body">
-                    <h3 class="card-text font-weight-bold" id="question"></h3>
-                </div>
-                <div class="col-md-12 p-4" id="options">
-                     <button class="btn btn-block btn-outline-success text-left quesButton" id="options1">asdfasdfas</button>               
-                     <button class="btn btn-block btn-outline-success text-left quesButton" id="options2">asdfasdf</button>   
-                     <button class="btn btn-block btn-outline-success text-left quesButton" id="options3">asdfsdf</button>   
-                     <button class="btn btn-block btn-outline-success text-left quesButton" id="options4">dasdfad</button>   
-                    <div>
-                        <button class="btn btn-success float-left" id="prev">Previous</button>
-                        <button class="btn btn-success float-right" id="next">Next</button>
-                    </div>
-                    </div>
-                    <div class="d-flex justifyCenter">
-                        <button class="btn btn-primary btn-lg mx-auto" id="finish">Finish</button>
-
-                    </div>
-                    <div id="result">
-                    <h3 class="mt-5 display-4">Marks: <span id="marks"></span>/25</h3>
-                    <h3 class="mt-4"><span id="correctAns">3</span> Correct out of 5</h3>
-                    <h3>Result: <span id="percentage">100%</span></h3>
-                    </div>
-            </div>
+    <div class="quizBox" id="quiz">
+        <div class="quizHeader">
+            <h2 id="question">Question Text</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="aText">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="bText">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="cText">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="dText">Answer</label>
+                </li>
+            </ul>
         </div>
     </div>
+    <button id="submit">Submit</button>
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
-    crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
