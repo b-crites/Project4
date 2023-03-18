@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2> Time Remaining:<br> (00:<span id="time">00</span>) </h2>
+    <div class="container hide" id="timer">
+        <h2> Time Remaining:<br> (<span id="time"></span>) </h2>
     </div>
-    <div class="quizBox" id="quiz">
+    <div class="quizBox hide" id="quiz">
         <div class="quizHeader">
             <h2 id="question">Question Text</h2>
             <ul>
@@ -34,7 +34,31 @@
             </ul>
         </div>
     </div>
-    <button id="submit">Submit</button>
+    <div class="bottom">
+    <button id="submit" class="hide">Submit</button>
+    </div>
+    <div class="center">
+        <button id="startButton">Start</button>
+</div>
+<!-- End -->
+<div class="hide">
+<form>
+    <p> Enter Name:
+        <input type="text" name="name" id="username" class="text-input" />
+        <button id="submit-score" type="submit">Submit High Score</button>
+    </p>
+</form>
+</div>
+<!-- High score -->
+<section id="high-score-container" class="hide">
+    <div class="score">
+        <h3 class="highscore">High Scores</h3>
+        <ol id="high-score-list" class="score-list"></ol>
+        
+        <button id="clear-high-scores">Clear High Scores</button>
+    </div>
+    </div>
+</section>
 
     <script src="script.js"></script>
 </body>

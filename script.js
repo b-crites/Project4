@@ -1,3 +1,5 @@
+// Questions
+// ----------------------------------------------------------
 const quizData = [
     {
         Question: 'What does HTML stand for?',
@@ -40,7 +42,8 @@ const quizData = [
         correct: "c",
     }
 ];
-
+// variables
+// --------------------------------------------------------------------------
 const quiz = document.getElementById('quiz')
 const ansEl = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
@@ -49,11 +52,17 @@ const bText = document.getElementById('bText')
 const cText = document.getElementById('cText')
 const dText = document.getElementById('dText')
 const submitButton = document.getElementById('submit')
+const timer = document.getElementById('time');
+const startButton = document.getElementById('startButton');
+const titleEl = document.getElementById('timer');
 
 
+// Quiz scores at start of game
+// ------------------------------------------------------------------------
 let currentQuiz = 0
 let score = 0
-
+// Game on load
+// -------------------------------------------------------------------------
 loadQuiz()
 
 function loadQuiz(){
@@ -80,12 +89,27 @@ function getSelected () {
     })
     return answer;
 }
+// start game
+// ----------------------------------------------------------
+function startGame(){
+    startButton.classList.add('hide')
+    submit.classList.remove('hide');
+    quiz.classList.remove('hide');
+    titleEl.classList.remove('hide');
+    
+    console.log(this)
+    
+    
+}
+startButton.addEventListener('click', startGame)
+
 // timer function
+// ----------------------------------------------------------
 
-const timer = document.getElementById('time');
-let timesecond = 20;
+
+let timesecond = 40;
 displayTime(timesecond)
-
+startButton.addEventListener('click', () =>{
 const countDown = setInterval(()=>{
     timesecond--;
     displayTime(timesecond);
@@ -94,6 +118,8 @@ const countDown = setInterval(()=>{
         clearInterval(countDown);
     }
 },1000)
+})
+
 
 function displayTime(second){
     const min = Math.floor(second / 60);
@@ -102,24 +128,45 @@ function displayTime(second){
 }
 function endTime(){
     timer.innerHTML = 'TIME'
+    if(!loadQuiz()){
+    clearInterval(timesecond)
+        
+    }
 }
 
+// High Scores
+// --------------------------------------------------------------
+const username = document.getElementById('username')
+const saveScore = document.getElementById('submit-score')
+// const finalScore = ;
+var highScores = [];
+
+
+// username.addEventListener('keyup',() => {
+//     saveScoreBtn.disabled = !username.value
+// });
 // submit
+// -------------------------------------------------------------
 
 submitButton.addEventListener('click', () => {
     const answer = getSelected()
     if(answer){
         if(answer === quizData[currentQuiz].correct){
             score++
+        }else{
+            timesecond = timesecond - 5
         }
     }
+   
     currentQuiz++
     if(currentQuiz < quizData.length){
         loadQuiz()
     }else{
         quiz.innerHTML= `
         <h2>You answered ${score}/${quizData.length} questions correctly!</h2>
-        <button onclick="location.reload()">Reload</button>`
+        <button onclick="location.reload()">Reload</button>`,
+        endTime();
+
     }
 })
     
