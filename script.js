@@ -128,11 +128,9 @@ function displayTime(second){
 }
 function endTime(){
     timer.innerHTML = 'TIME'
-    if(!loadQuiz()){
-    clearInterval(timesecond)
-        
-    }
+    
 }
+
 
 // High Scores
 // --------------------------------------------------------------
@@ -142,9 +140,6 @@ const saveScore = document.getElementById('submit-score')
 var highScores = [];
 
 
-// username.addEventListener('keyup',() => {
-//     saveScoreBtn.disabled = !username.value
-// });
 // submit
 // -------------------------------------------------------------
 
@@ -164,9 +159,9 @@ submitButton.addEventListener('click', () => {
     }else{
         quiz.innerHTML= `
         <h2>You answered ${score}/${quizData.length} questions correctly!</h2>
-        <button onclick="location.reload()">Reload</button>`,
-        endTime();
+        <button onclick="location.reload()">Reload</button>`
 
     }
+    
 })
     
